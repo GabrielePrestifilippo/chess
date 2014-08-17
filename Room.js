@@ -1,8 +1,9 @@
-function Room() {
+function Room(game) {
+    this.game = game;
     this.users = {
-        white: null, //{secret:null, socketId: null},
-        black: null
-    }
+        w: null, //{secret:null, socketId: null},
+        b: null
+    };
 }
 
 Room.prototype.register = function (color, socketId, secret) {
@@ -13,7 +14,7 @@ Room.prototype.register = function (color, socketId, secret) {
             secret : secret,
             socketId : socketId,
             connected : true
-        }
+        };
         return newUser;
     }
 
@@ -51,6 +52,6 @@ Room.prototype.userStatuses = function(){
     }
   }
   return response;
-}
+};
 
 module.exports = Room;
